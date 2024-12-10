@@ -8,7 +8,7 @@ dy = spark.read.csv(
     sys.argv[1],
     inferSchema=True,
     header=True
-)
+).repartition(int(sys.argv[3]))
 
 dy_subset = dy.select(['ACCT_ID', 'ALPHA', 'OWNER_NAME', 
                       'LAST_FULL_INSP_DT', 'BIN', 'LATITUDE','LONGITUDE',
