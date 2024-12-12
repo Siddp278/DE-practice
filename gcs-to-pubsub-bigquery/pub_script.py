@@ -5,16 +5,16 @@ import json
 import sys
 from google.cloud.storage import Client
 
-project_id = "<project-id>"
-topic_id = "<topic-name>"
+project_id = "regal-habitat-444222-u9"
+topic_id = "floods-json"
 
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_id, topic_id)
 publish_futures = []
 
 client = Client()
-bucket = client.get_bucket("<bicket-name>")
-blob = bucket.get_blob("<file-location>")
+bucket = client.get_bucket("data-storage-unique")
+blob = bucket.get_blob("data-input/flood_data.json")
 record = json.loads(blob.download_as_text(encoding="utf-8"))
 
 def get_callback(
