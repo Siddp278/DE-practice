@@ -31,4 +31,4 @@ spark.conf.set('temporaryGcsBucket', bucket)
 # Save the data to BigQuery
 dy_subset.write.format('bigquery') \
   .option('table', sys.argv[2] + ".fdny_table") \
-  .save()
+  .mode('append').save()
