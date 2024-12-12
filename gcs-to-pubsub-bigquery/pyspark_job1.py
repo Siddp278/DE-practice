@@ -36,7 +36,7 @@ df_with_word_counts = df.withColumn("words", split(col("message"), " ")) \
     .withColumn(
         "certain_word_count",
         expr(
-            f"size(filter(words, word -> word IN ({', '.join([f'\'{word}\'' for word in keywords])})))"
+            f"size(filter(words, word -> word IN ({', '.join([repr(word) for word in keywords])})))"
         ),
     )
 
