@@ -52,4 +52,4 @@ spark.conf.set('temporaryGcsBucket', bucket)
 # Save the data to BigQuery
 results.write.format('bigquery') \
   .option('table', "DE_practice.floods-ranking") \
-  .save()
+  .mode('append').save()
