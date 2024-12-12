@@ -7,7 +7,7 @@ from google.cloud import pubsub_v1, bigquery
 import json
 
 project_id = "regal-habitat-444222-u9"
-subscription_id = "<sub-id>"
+subscription_id = "floods-json-sub"
 bq_dataset_id = "DE_practice"
 bq_table_id = "floods-table"
 
